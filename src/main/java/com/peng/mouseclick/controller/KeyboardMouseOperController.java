@@ -18,7 +18,7 @@ public class KeyboardMouseOperController {
 
     private boolean isStop = false;
 
-    @GetMapping("/index")
+    @GetMapping("/")
     public String index(){
         return "controllerH.html";
     }
@@ -32,13 +32,14 @@ public class KeyboardMouseOperController {
 
     @GetMapping("/dnf/clickLeftMouse")
     @ResponseBody
-    public String clickLeftMouse(){
+    public String clickLeftMouse() throws InterruptedException {
         isStop = false;
         try {
             robot = new Robot();//创建Robot对象
         } catch (Exception e) {
             e.printStackTrace();
         }
+        Thread.sleep(3000L);
         System.out.println("开始");
         /*for (int i = 0; i < 10000; i++) {
             //按下和释放鼠标左键，选定工程
@@ -59,13 +60,14 @@ public class KeyboardMouseOperController {
 
     @GetMapping("/lol/clickRightMouse")
     @ResponseBody
-    public String clickRightMouse(){
+    public String clickRightMouse() throws InterruptedException {
         isStop = false;
         try {
             robot = new Robot();//创建Robot对象
         } catch (Exception e) {
             e.printStackTrace();
         }
+        Thread.sleep(3000L);
         System.out.println("开始");
         int i = 0;
         while (!isStop) {
