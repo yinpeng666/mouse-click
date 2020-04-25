@@ -27,6 +27,7 @@ public class KeyboardMouseOperController {
     @ResponseBody
     public String stopRun(){
         isStop = true;
+        
         return "停止运行";
     }
 
