@@ -110,4 +110,59 @@ public class KeyboardMouseOperController {
         }
         return "执行结束";
     }
+
+    @GetMapping("/dnf/clickRightMouse")
+    @ResponseBody
+    public String dnfClickRightMouse() throws InterruptedException {
+        Thread.sleep(3000L);
+        isStop = false;
+        try {
+            robot = new Robot();//创建Robot对象
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.out.println("开始");
+        int i = 0;
+        while (!isStop){
+            robot.mousePress(KeyEvent.BUTTON3_MASK);
+            robot.delay(5);
+            robot.mouseRelease(KeyEvent.BUTTON3_MASK);
+            robot.delay(50);
+
+            robot.keyPress(KeyEvent.VK_SPACE);
+            robot.delay(5);
+            robot.keyRelease(KeyEvent.VK_SPACE);
+            robot.delay(10);
+
+        }
+
+        return "执行结束";
+    }
+
+    @GetMapping("/dnf/click6_SPACE")
+    @ResponseBody
+    public String dnfClick6_SPACE() throws InterruptedException {
+        Thread.sleep(3000L);
+        isStop = false;
+        try {
+            robot = new Robot();//创建Robot对象
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.out.println("开始");
+        int i = 0;
+        while (!isStop){
+            robot.keyPress(KeyEvent.VK_6);
+            robot.delay(10);
+            robot.keyRelease(KeyEvent.VK_6);
+            robot.delay(30);
+
+            robot.keyPress(KeyEvent.VK_SPACE);
+            robot.delay(10);
+            robot.keyRelease(KeyEvent.VK_SPACE);
+            robot.delay(20);
+        }
+
+        return "执行结束";
+    }
 }
