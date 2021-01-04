@@ -166,4 +166,24 @@ public class KeyboardMouseOperController {
 
         return "执行结束";
     }
+
+    @GetMapping("/yun/refresh")
+    @ResponseBody
+    public String yunRefresh() throws InterruptedException {
+        Thread.sleep(3000L);
+        isStop = false;
+        try {
+            robot = new Robot();//创建Robot对象
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.out.println("开始");
+        while (!isStop) {
+            robot.keyPress(KeyEvent.VK_F5);
+            robot.delay(10);
+            robot.keyRelease(KeyEvent.VK_F5);
+            robot.delay(60*1000*10);
+        }
+        return "执行结束";
+    }
 }
